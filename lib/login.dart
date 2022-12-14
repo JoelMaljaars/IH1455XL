@@ -29,7 +29,7 @@ class LoginScreen extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(top: 180),
                 child: const Text(
-                  'DeTa',
+                  'Deta',
                   textAlign: TextAlign.center,
                   textScaleFactor: 4.0,
                   style: TextStyle(
