@@ -6,6 +6,7 @@ import 'login.dart';
 import 'home.dart';
 import 'package:hive/hive.dart';
 import 'package:flutter/services.dart';
+import 'package:path_provider/path_provider.dart';
 
 Box? box;
 ZermeloService? zermeloService;
@@ -16,6 +17,14 @@ void main() async {
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
+  Directory appDocDirectory = await getApplicationDocumentsDirectory();
+
+  Directory dir =
+    await Directory(appDocDirectory.path + '/hive').create(recursive: true);
+
+  var path = dir.path;
+
+  Hive..init(path);
   box = await Hive.openBox('trekker');
   zermeloService = ZermeloService();
 
@@ -33,6 +42,8 @@ class MyApp extends StatelessWidget {
         school is String &&
         school.length > 2;
   }
+
+
 
   @override
   Widget build(BuildContext context) {

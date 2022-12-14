@@ -53,33 +53,31 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        toolbarHeight: 100,
-        title: const Text(
-          'Profiel',
-          style: TextStyle(
-              fontSize: 35, color: Colors.black, fontWeight: FontWeight.bold),
-        ),
-        leading: Icon(Icons.person, color: Colors.black, size: 45),
-        backgroundColor: Colors.white,
-        elevation: 0,
+      appBar: PreferredSize(
+          preferredSize: Size.fromHeight(80),
+          child: AppBar(
+            toolbarHeight: 80,
+            centerTitle: true,
+            title: Text(
+              '(datum)',
+              style: TextStyle(fontSize: 30, color: Colors.black, fontWeight: FontWeight.bold),
+            ),
+            leading: TextButton(
+              child: Icon(
+                  Icons.arrow_back_ios_new_rounded,
+                  color: Colors.black,
+                  size: 30
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+
+            backgroundColor: Colors.white,
+            elevation: 0,
+          )
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.call),
-            label: 'Calls',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.camera),
-            label: 'Camera',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
-            label: 'Chats',
-          ),
-        ],
-      ),
+
       // floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       // floatingActionButton: FloatingActionButton(
       //   backgroundColor: Color.fromRGBO(252, 202, 46, 1),
