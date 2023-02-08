@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:pwsdikketrekker/Roosterpagina.dart';
 import 'package:pwsdikketrekker/services/zermelo/zermelo.dart';
 import 'package:zermelo/Zermelo.dart';
 import 'login.dart';
@@ -53,7 +54,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
       title: 'Dèta',
-      home: isLoggedIn() ? const HomeScreen() : LoginScreen(),
+      home: isLoggedIn() ?  LoginScreen() : Roosterpagina(),
     );
   }
 }

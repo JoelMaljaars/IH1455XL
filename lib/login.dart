@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pwsdikketrekker/Roosterpagina.dart';
 import 'home.dart';
 import 'main.dart';
 import 'Colors.dart';
@@ -116,7 +117,7 @@ class LoginScreen extends StatelessWidget {
                               Navigator.pushReplacement(context,
                                   MaterialPageRoute(
                                       builder: (BuildContext context) {
-                                return const HomeScreen();
+                                return const Roosterpagina();
                               }));
                             },
                             child: Text('Login'),
