@@ -52,14 +52,14 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
+      backgroundColor: blauw,
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(80),
           child: AppBar(
             toolbarHeight: 80,
             centerTitle: true,
             title: Text(
-              '(datum)',
+              'Rooster',
               style: TextStyle(fontSize: 30, color: Colors.black, fontWeight: FontWeight.bold),
             ),
             leading: TextButton(
@@ -143,169 +143,6 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
           ),
-          // Expanded(
-          //   child: Align(
-          //     alignment: FractionalOffset.bottomCenter,
-          //     child: Container(
-          //       width: MediaQuery.of(context).size.width,
-          //       height: 650,
-          //       decoration: BoxDecoration(
-          //         color: blauw,
-          //         borderRadius: BorderRadius.only(
-          //           topLeft: Radius.circular(40),
-          //           topRight: Radius.circular(40),
-          //         ),
-          //       ),
-          //       child: Column(
-          //         children: [
-          //           Container(
-          //             transform: Matrix4.translationValues(0.0, -80.0, 0.0),
-          //             width: 160,
-          //             height: 160,
-          //             decoration: BoxDecoration(
-          //               image: DecorationImage(
-          //                   image: AssetImage(
-          //                       "assets/images/profile_image_avatar2.jpg"),
-          //                   fit: BoxFit.fill),
-          //               color: Colors.green,
-          //               shape: BoxShape.circle,
-          //             ),
-          //           ),
-          //           Container(
-          //               transform: Matrix4.translationValues(0.0, -40.0, 0.0),
-          //               child: Text(zermeloService!.currentUser.firstName,
-          //                   textScaleFactor: 3.0,
-          //                   style: TextStyle(
-          //                     fontWeight: FontWeight.w600,
-          //                   ))),
-          //           Container(
-          //             margin: EdgeInsets.only(top: 20),
-          //             width: 340,
-          //             height: 50,
-          //             child: Container(
-          //               margin: EdgeInsets.only(left: 15),
-          //               child: Align(
-          //                 alignment: Alignment.center,
-          //                 child: Text('Klas:',
-          //                     textScaleFactor: 1.4,
-          //                     style: TextStyle(
-          //                       fontWeight: FontWeight.w400,
-          //                     )),
-          //               ),
-          //             ),
-          //             decoration: BoxDecoration(
-          //                 color: Colors.white,
-          //                 borderRadius: BorderRadius.all(Radius.circular(5))),
-          //           ),
-          //           Container(
-          //             margin: EdgeInsets.only(top: 15),
-          //             width: 340,
-          //             height: 50,
-          //             child: Container(
-          //               margin: EdgeInsets.only(left: 15),
-          //               child: Align(
-          //                 alignment: Alignment.center,
-          //                 child: Text('Leerjaar:',
-          //                     textScaleFactor: 1.4,
-          //                     style: TextStyle(
-          //                       fontWeight: FontWeight.w400,
-          //                     )),
-          //               ),
-          //             ),
-          //             decoration: BoxDecoration(
-          //                 color: Colors.white,
-          //                 borderRadius: BorderRadius.all(Radius.circular(5))),
-          //           ),
-          //           Container(
-          //               margin: EdgeInsets.only(top: 15),
-          //               width: 340,
-          //               height: 50,
-          //               decoration: BoxDecoration(
-          //                   borderRadius: BorderRadius.all(Radius.circular(5))),
-          //               child: ElevatedButton(
-          //                 style: ElevatedButton.styleFrom(
-          //                   primary: Colors.white,
-          //                   elevation: 0,
-          //                 ),
-          //                 onPressed: () {
-          //                   //Navigator.push(
-          //                   //  context,
-          //                   //  MaterialPageRoute(
-          //                   //      builder: (_) => const Roosterpagina()),
-          //                   //);
-          //                 },
-          //                 child: Text(
-          //                   'Rooster',
-          //                   textScaleFactor: 1.8,
-          //                   style: TextStyle(
-          //                     color: Colors.black,
-          //                     fontWeight: FontWeight.w500,
-          //                   ),
-          //                 ),
-          //               )),
-          //           Container(
-          //             margin: EdgeInsets.only(top: 15),
-          //             width: 340,
-          //             height: 50,
-          //             decoration: BoxDecoration(
-          //                 color: Colors.white,
-          //                 borderRadius: BorderRadius.all(Radius.circular(5))),
-          //             child: ElevatedButton(
-          //               style: ElevatedButton.styleFrom(
-          //                 primary: Colors.white,
-          //                 elevation: 0,
-          //               ),
-          //               onPressed: () {
-          //                 Navigator.push(
-          //                   context,
-          //                   MaterialPageRoute(
-          //                       builder: (_) => const Cijferlijst()),
-          //                 );
-          //               },
-          //               child: Text(
-          //                 'Cijfers ',
-          //                 textScaleFactor: 1.8,
-          //                 style: TextStyle(
-          //                   color: Colors.black,
-          //                   fontWeight: FontWeight.w500,
-          //                 ),
-          //               ),
-          //             ),
-          //           ),
-          //           Container(
-          //             margin: EdgeInsets.only(top: 15),
-          //             width: 340,
-          //             height: 50,
-          //             decoration: BoxDecoration(
-          //                 color: Colors.white,
-          //                 borderRadius: BorderRadius.all(Radius.circular(5))),
-          //             child: ElevatedButton(
-          //               style: ElevatedButton.styleFrom(
-          //                 primary: Colors.white,
-          //                 elevation: 0,
-          //               ),
-          //               onPressed: () {
-          //                 Navigator.push(
-          //                   context,
-          //                   MaterialPageRoute(
-          //                       builder: (_) => const Meldingen()),
-          //                 );
-          //               },
-          //               child: Text(
-          //                 'Meldingen',
-          //                 textScaleFactor: 1.8,
-          //                 style: TextStyle(
-          //                   color: Colors.black,
-          //                   fontWeight: FontWeight.w500,
-          //                 ),
-          //               ),
-          //             ),
-          //           ),
-          //         ],
-          //       ),
-          //     ),
-          //   ),
-          // )
         ],
       ),
     );
@@ -362,6 +199,24 @@ class _HomeScreenState extends State<HomeScreen> {
         break;
       case "ne":
         return "Nederlands";
+        break;
+      case "gds":
+        return "Godsdienst";
+        break;
+      case "nlt":
+        return "NLT";
+        break;
+      case "schk":
+        return "Scheikunde";
+        break;
+      case "in":
+        return "Informatica";
+        break;
+      case "entl":
+        return "Engels";
+        break;
+      case "to":
+        return "TO";
         break;
       default:
         return "${appointment.subjects[0]}???";

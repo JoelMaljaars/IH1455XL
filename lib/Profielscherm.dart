@@ -4,6 +4,8 @@ import 'package:pwsdikketrekker/main.dart';
 import 'package:pwsdikketrekker/services/zermelo/zermelo.dart';
 import 'package:zermelo/Zermelo.dart';
 import 'Colors.dart';
+import 'Meldingen.dart';
+import 'Cijferlijst.dart';
 
 
 
@@ -26,30 +28,30 @@ class Profielscherm extends StatelessWidget {
               centerTitle: true,
               title: Text(
                 'Profiel',
-                style: TextStyle(fontSize: 30, color: Colors.black, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 40, color: Colors.black, fontWeight: FontWeight.bold),
               ),
-              leading: TextButton(
-                child: Icon(
-                    Icons.arrow_back_ios_new_rounded,
-                    color: Colors.black,
-                    size: 30
-                ),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
+              // leading: TextButton(
+              //   child: Icon(
+              //       Icons.arrow_back_ios_new_rounded,
+              //       color: Colors.black,
+              //       size: 30
+              //   ),
+              //   onPressed: () {
+              //     Navigator.of(context).pop();
+              //   },
+              // ),
 
               backgroundColor: Colors.white,
               elevation: 0,
             )
         ),
-        backgroundColor: blauw,
+        backgroundColor: Colors.white,
 
         body: Align(
-            alignment: FractionalOffset.bottomCenter,
-              //width: MediaQuery.of(context).size.width,
+            alignment: Alignment.bottomCenter,
             child: Container(
               height: 650,
+              width: double.infinity,
               decoration: BoxDecoration(
                 color: blauw,
                 borderRadius: BorderRadius.only(
@@ -74,11 +76,11 @@ class Profielscherm extends StatelessWidget {
                   ),
                   Container(
                       transform: Matrix4.translationValues(0.0, -40.0, 0.0),
-                      child: Text('hoi',
+                      child: Text('{naam}',
                         //zermeloService!.currentUser.firstName,
                           textScaleFactor: 3.0,
                           style: TextStyle(
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w400,
                           ))),
                   Container(
                     margin: EdgeInsets.only(top: 20),
@@ -87,7 +89,7 @@ class Profielscherm extends StatelessWidget {
                     child: Container(
                       margin: EdgeInsets.only(left: 15),
                       child: Align(
-                        alignment: Alignment.center,
+                        alignment: Alignment.centerLeft,
                         child: Text('Klas:',
                             textScaleFactor: 1.4,
                             style: TextStyle(
@@ -106,7 +108,7 @@ class Profielscherm extends StatelessWidget {
                     child: Container(
                       margin: EdgeInsets.only(left: 15),
                       child: Align(
-                        alignment: Alignment.center,
+                        alignment: Alignment.centerLeft,
                         child: Text('Leerjaar:',
                             textScaleFactor: 1.4,
                             style: TextStyle(
@@ -119,7 +121,7 @@ class Profielscherm extends StatelessWidget {
                         borderRadius: BorderRadius.all(Radius.circular(5))),
                   ),
                   Container(
-                      margin: EdgeInsets.only(top: 15),
+                      margin: EdgeInsets.only(top: 50),
                       width: 340,
                       height: 50,
                       decoration: BoxDecoration(
@@ -154,56 +156,56 @@ class Profielscherm extends StatelessWidget {
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.all(Radius.circular(5))),
-                    // child: ElevatedButton(
-                    //   style: ElevatedButton.styleFrom(
-                    //     primary: Colors.white,
-                    //     elevation: 0,
-                    //   ),
-                    //   onPressed: () {
-                    //     // Navigator.push(
-                    //     //   context,
-                    //     //   MaterialPageRoute(
-                    //     //       builder: (_) => const Cijferlijst()),
-                    //     // );
-                    //   },
-                    //   child: Text(
-                    //     'Cijfers ',
-                    //     textScaleFactor: 1.8,
-                    //     style: TextStyle(
-                    //       color: Colors.black,
-                    //       fontWeight: FontWeight.w500,
-                    //     ),
-                    //   ),
-                    // ),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.white,
+                        elevation: 0,
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => const Meldingen()),
+                        );
+                      },
+                      child: Text(
+                        'Meldingen',
+                        textScaleFactor: 1.8,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 15),
+                    margin: EdgeInsets.only(top: 50),
                     width: 340,
                     height: 50,
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.all(Radius.circular(5))),
-                    // child: ElevatedButton(
-                    //   style: ElevatedButton.styleFrom(
-                    //     primary: Colors.white,
-                    //     elevation: 0,
-                    //   ),
-                    //   onPressed: () {
-                    //     // Navigator.push(
-                    //     //   context,
-                    //     //   MaterialPageRoute(
-                    //     //       builder: (_) => const Meldingen()),
-                    //     // );
-                    //   },
-                    //   child: Text(
-                    //     'Meldingen',
-                    //     textScaleFactor: 1.8,
-                    //     style: TextStyle(
-                    //       color: Colors.black,
-                    //       fontWeight: FontWeight.w500,
-                    //     ),
-                    //   ),
-                    // ),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.white,
+                        elevation: 0,
+                      ),
+                      onPressed: () {
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //       builder: (_) => const Meldingen()),
+                        // );
+                      },
+                      child: Text(
+                        'Uitloggen',
+                        textScaleFactor: 1.8,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),
