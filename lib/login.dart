@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pwsdikketrekker/Roosterpagina.dart';
+import 'package:pwsdikketrekker/Profielscherm.dart';
 import 'home.dart';
 import 'main.dart';
 import 'Colors.dart';
@@ -110,14 +110,14 @@ class LoginScreen extends StatelessWidget {
                             onPressed: () async {
                               String school = text1.text;
                               String code = text2.text;
-                              await zermeloService!
-                                  .login(school: school, code: code);
+                              //await zermeloService!
+                                  //.login(school: school, code: code);
 
                               // ignore: use_build_context_synchronously
                               Navigator.pushReplacement(context,
                                   MaterialPageRoute(
                                       builder: (BuildContext context) {
-                                return const Roosterpagina();
+                                return const Profielscherm();
                               }));
                             },
                             child: Text('Login'),

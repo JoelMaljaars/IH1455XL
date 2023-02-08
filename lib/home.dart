@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:pwsdikketrekker/main.dart';
 import 'package:pwsdikketrekker/services/zermelo/zermelo.dart';
 import 'Colors.dart';
-import 'Roosterpagina.dart';
+import 'Profielscherm.dart';
 import 'Cijferlijst.dart';
 import 'Meldingen.dart';
 import 'login.dart';
