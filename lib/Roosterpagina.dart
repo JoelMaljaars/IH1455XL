@@ -6,12 +6,6 @@ import 'Colors.dart';
 
 
 
-
-
-
-
-
-
 class Roosterpagina extends StatelessWidget {
   const Roosterpagina({Key? key}) : super(key: key);
 
