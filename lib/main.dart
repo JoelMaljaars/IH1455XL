@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
       title: 'Dèta',
-      home: isLoggedIn() ?  LoginScreen() : Roosterpagina(),
+      home: isLoggedIn() ?  HomeScreen() : LoginScreen(),
     );
   }
 }
