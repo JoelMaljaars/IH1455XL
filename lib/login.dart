@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pwsdikketrekker/Profielscherm.dart';
-import 'home.dart';
+import 'Roosterpagina.dart';
 import 'main.dart';
 import 'Colors.dart';
 import 'Services/Zermelo/zermelo.dart';
@@ -28,7 +28,16 @@ class LoginScreen extends StatelessWidget {
             shrinkWrap: true,
             children: [
               Container(
-                margin: EdgeInsets.only(top: 180),
+                margin: EdgeInsets.only(top: 140),
+                transform: Matrix4.translationValues(0.0, 10.0, 0.0),
+                child: Icon(
+                  Icons.school_rounded,
+                  color: Colors.white,
+                  size: 60,
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 0),
                 child: const Text(
                   'DeTa',
                   textAlign: TextAlign.center,
@@ -36,19 +45,14 @@ class LoginScreen extends StatelessWidget {
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w600,
-                      shadows: <Shadow>[
-                        Shadow(
-                          offset: Offset(0, 3.0),
-                          blurRadius: 3.0,
-                          color: Color.fromARGB(100, 0, 0, 0),
-                        ),
-                      ]),
+                      fontFamily: 'type',
+                  ),
                 ),
               ),
               Padding(
                 padding: EdgeInsets.only(left: 15, right: 15),
                 child: Card(
-                  margin: EdgeInsets.only(top: 116),
+                  margin: EdgeInsets.only(top: 90),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                   color: Colors.white,
@@ -105,22 +109,28 @@ class LoginScreen extends StatelessWidget {
                           height: 50,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              primary: zwart,
+                              primary: Colors.black87,
                             ),
                             onPressed: () async {
                               String school = text1.text;
                               String code = text2.text;
-                              //await zermeloService!
-                                  //.login(school: school, code: code);
+                              await zermeloService!
+                                  .login(school: school, code: code);
 
-                              // ignore: use_build_context_synchronously
+                                //ignore: use_build_context_synchronously;
                               Navigator.pushReplacement(context,
                                   MaterialPageRoute(
                                       builder: (BuildContext context) {
                                 return const Profielscherm();
                               }));
                             },
-                            child: Text('Login'),
+                            child: Text(
+                                'Login',
+                                style: TextStyle(
+                                  fontFamily: 'type',
+                                  fontSize: 20
+                                ),
+                            ),
                           ),
                         ),
                       ],
@@ -132,7 +142,7 @@ class LoginScreen extends StatelessWidget {
                 alignment: Alignment.bottomCenter,
                 child: Text(
                   'Developed by DT developers',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.white, fontFamily: 'type'),
                 ),
               ),
             ],

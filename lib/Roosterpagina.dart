@@ -5,7 +5,6 @@ import 'package:pwsdikketrekker/main.dart';
 import 'package:pwsdikketrekker/services/zermelo/zermelo.dart';
 import 'Colors.dart';
 import 'Profielscherm.dart';
-import 'Cijferlijst.dart';
 import 'Meldingen.dart';
 import 'login.dart';
 import 'package:zermelo/Zermelo.dart';
@@ -21,8 +20,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   late PageController _pageController;
   List<Day> days = [];
-  String title = "?";
-  String subtitle = "???";
+  String title = "Date";
+  String subtitle = "Day";
 
   @override
   void initState() {
@@ -60,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
             centerTitle: true,
             title: Text(
               'Rooster',
-              style: TextStyle(fontSize: 30, color: Colors.black, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 30, color: Colors.black, fontWeight: FontWeight.bold, fontFamily: 'type'),
             ),
             leading: TextButton(
               child: Icon(
@@ -86,8 +85,18 @@ class _HomeScreenState extends State<HomeScreen> {
       // ),
       body: ListView(
         children: [
-          Text(title, style: TextStyle(fontSize: 30)),
-          Text(subtitle, style: TextStyle(fontSize: 20)),
+          // Text(title, style: TextStyle(fontSize: 30, color: Colors.white)),
+          // Text(subtitle, style: TextStyle(fontSize: 20)),
+          Container(
+            margin: EdgeInsets.only(top: 20),
+            alignment: Alignment.center,
+            child: Text(title, style: TextStyle(fontSize: 35, color: Colors.white, fontFamily: 'type')),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 20),
+            alignment: Alignment.center,
+            child: Text(subtitle, style: TextStyle(fontSize: 25, color: Colors.white, fontFamily: 'type')),
+          ),
           Container(
             height: 1000,
             child: FutureBuilder(
@@ -125,12 +134,34 @@ class _HomeScreenState extends State<HomeScreen> {
                               padding: EdgeInsets.symmetric(
                                   horizontal: 15, vertical: 10),
                               color: _getTypeColor(appointment),
-                              child: Text(
-                                '${appointment.startTimeSlot}-${appointment.endTimeSlot}: ${_getClass(appointment)}',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                ),
-                              ),
+                              child: Row(
+                                children: [
+                                  Text(
+                                      '${appointment.startTimeSlot}      ',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 25,
+                                      fontFamily: 'type'
+
+                                    ),
+                                  ),
+                                  Text(
+                                    '${_getClass(appointment)}',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 25,
+                                      fontFamily: 'type'
+                                    ),
+                                  ),
+                                ],
+                              )
+                              // child: Text(
+                              //   '${appointment.startTimeSlot}           ${_getClass(appointment)}',
+                              //   style: TextStyle(
+                              //     color: Colors.black,
+                              //     fontSize: 25,
+                              //   ),
+                              // ),
                             );
                           },
                         ),
@@ -192,7 +223,7 @@ class _HomeScreenState extends State<HomeScreen> {
         return "Engels";
         break;
       case "netl":
-        return "Mentoruur";
+        return "Nederlands";
         break;
       case "kv1":
         return "Kunst Vorming";
@@ -217,6 +248,15 @@ class _HomeScreenState extends State<HomeScreen> {
         break;
       case "to":
         return "TO";
+        break;
+      case "biol":
+        return "Biologie";
+        break;
+      case "z_uur":
+        return "z_uur";
+        break;
+      case "wisa":
+        return "Wiskunde A";
         break;
       default:
         return "${appointment.subjects[0]}???";

@@ -18,7 +18,7 @@ class Meldingen extends StatelessWidget {
               centerTitle: true,
               title: Text(
                 'Meldingen',
-                style: TextStyle(fontSize: 30, color: Colors.black, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 30, color: Colors.black, fontWeight: FontWeight.bold, fontFamily: 'type'),
               ),
               leading: TextButton(
                 child: Icon(

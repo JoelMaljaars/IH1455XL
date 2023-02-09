@@ -4,11 +4,12 @@ import 'package:pwsdikketrekker/Profielscherm.dart';
 import 'package:pwsdikketrekker/services/zermelo/zermelo.dart';
 import 'package:zermelo/Zermelo.dart';
 import 'login.dart';
-import 'home.dart';
+import 'Roosterpagina.dart';
 import 'package:hive/hive.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
+
 
 Box? box;
 ZermeloService? zermeloService;
@@ -54,7 +55,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
       title: 'Dèta',
-      home: isLoggedIn() ?  Profielscherm() : HomeScreen(),
+      home: isLoggedIn() ?  Profielscherm() : LoginScreen(),
 
     );
   }

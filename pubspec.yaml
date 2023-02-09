@@ -55,6 +55,10 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  fonts:
+    - family: type
+      fonts:
+        - asset: assets/Fonts/BAHNSCHRIFT 1.TTF
   assets:
     - assets/images/profile_picture_avatar.jpg
     - assets/images/profile_image_avatar1.png
