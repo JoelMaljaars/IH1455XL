@@ -38,9 +38,11 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<List<Day>> fillDays(context) async {
     if (days.isNotEmpty) {
       return days;
+
     }
     days = await zermeloService!.getDays(context);
     return days;
+
     // setState(() {
     //   days = _days;
     // });
@@ -108,8 +110,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     controller: _pageController,
                     scrollDirection: Axis.horizontal,
                     onPageChanged: (index) {
-                      // print(
-                      //     'pagina is nu v;eranderd, hier kan je de titel ofzo aanpassen');
+                      //print(
+                      //     'pagina is nu veranderd, hier kan je de titel ofzo aanpassen');
                       Day day = days[index];
                       setState(() {
                         List<String> texts = _getDayReference(day.date);
@@ -180,7 +182,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Color _getTypeColor(appointment) {
-    if (appointment.cancelled) return Color.fromRGBO(255, 100, 100, 1);
+    if (appointment.cancelled) return Color.fromRGBO(255, 50, 50, 1.0);
     if (appointment.moved) return Colors.orange;
     if (appointment.modified) return Colors.blue;
     // if (this.appointment.valid) return Colors.green;
@@ -253,7 +255,7 @@ class _HomeScreenState extends State<HomeScreen> {
         return "Biologie";
         break;
       case "z_uur":
-        return "z_uur";
+        return "Z-uur";
         break;
       case "wisa":
         return "Wiskunde A";
@@ -266,7 +268,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<String> _getDayReference(DateTime date) {
     final now = DateTime.now().add(Duration(hours: 1));
+    print(now);
+
     final diff = date.difference(now).inDays - 1;
+    print(diff);
     if (diff == -2) {
       return ["Eergisteren", _getDayName(date, true)];
     } else if (diff == -1) {
@@ -278,8 +283,11 @@ class _HomeScreenState extends State<HomeScreen> {
     } else if (diff == 2) {
       return ["Overmorgen", _getDayName(date, true)];
     } else if (diff > 2) {
-      return ["Overmorgen", _getDayName(date, true)];
-    } else if (diff < 2) {
+      return [
+      "${date.day.toString()} ${_getMonthName(date)} ${date.year != DateTime.now().year ? date.year.toString() : ""}",
+    _getDayName(date, false)
+      ];
+    } else if (diff < -2) {
       return [
         "${date.day.toString()} ${_getMonthName(date)} ${date.year != DateTime.now().year ? date.year.toString() : ""}",
         _getDayName(date, false)

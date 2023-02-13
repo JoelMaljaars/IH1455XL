@@ -8,9 +8,6 @@ import 'Colors.dart';
 import 'Meldingen.dart';
 import '../../main.dart';
 
-
-
-
 class Profielscherm extends StatelessWidget {
   const Profielscherm({Key? key}) : super(key: key);
 
@@ -25,38 +22,31 @@ class Profielscherm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
-
-      debugShowCheckedModeBanner: false,
-
-      home: Scaffold(
-        appBar: PreferredSize(
-            preferredSize: Size.fromHeight(80),
-            child: AppBar(
-              toolbarHeight: 80,
-              centerTitle: true,
-              title: Container(
-                margin: EdgeInsets.only(top: 20),
-                child: Text(
-                  'Profiel',
-                  style: TextStyle(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          appBar: PreferredSize(
+              preferredSize: Size.fromHeight(80),
+              child: AppBar(
+                toolbarHeight: 80,
+                centerTitle: true,
+                title: Container(
+                  margin: EdgeInsets.only(top: 20),
+                  child: Text(
+                    'Profiel',
+                    style: TextStyle(
                       fontSize: 40,
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontFamily: 'type',
-
+                    ),
                   ),
-
                 ),
-              ),
-              backgroundColor: Colors.white,
-              elevation: 0,
-            )
-        ),
-        backgroundColor: Colors.white,
-
-        body: Align(
+                backgroundColor: Colors.white,
+                elevation: 0,
+              )),
+          backgroundColor: Colors.white,
+          body: Align(
             alignment: Alignment.bottomCenter,
             child: Container(
               height: 650,
@@ -85,15 +75,14 @@ class Profielscherm extends StatelessWidget {
                   ),
                   Container(
                       transform: Matrix4.translationValues(0.0, -40.0, 0.0),
-
-                      child: Text("${zermeloService?.currentUser?.firstName ?? ''}  ${zermeloService?.currentUser?.prefix ?? ''}  ${zermeloService?.currentUser?.lastName ?? ''}",
+                      child: Text(
+                          "${zermeloService?.currentUser?.firstName ?? ''}  ${zermeloService?.currentUser?.prefix ?? ''}  ${zermeloService?.currentUser?.lastName ?? ''}",
 
                           //zermeloService!.currentUser.firstName,
                           textScaleFactor: 2.7,
                           style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontFamily: 'type'
-                          ))),
+                              fontWeight: FontWeight.w400,
+                              fontFamily: 'type'))),
                   Container(
                     margin: EdgeInsets.only(top: 20),
                     width: 340,
@@ -102,7 +91,12 @@ class Profielscherm extends StatelessWidget {
                       margin: EdgeInsets.only(left: 15),
                       child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Text('School:  ${zermeloService?.zermelo?.school ?? ''}', textScaleFactor: 1.6, style: TextStyle(fontWeight: FontWeight.w100, fontFamily: 'type'),),
+                        child: Text(
+                          'School:  ${zermeloService?.zermelo?.school ?? ''}',
+                          textScaleFactor: 1.6,
+                          style: TextStyle(
+                              fontWeight: FontWeight.w100, fontFamily: 'type'),
+                        ),
                       ),
                     ),
                     decoration: BoxDecoration(
@@ -111,14 +105,14 @@ class Profielscherm extends StatelessWidget {
                   ),
                   Container(
                     margin: EdgeInsets.only(top: 15),
-
                     width: 340,
                     height: 50,
                     child: Container(
                       margin: EdgeInsets.only(left: 15),
                       child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Text('Status:  ${zermeloService?.currentUser?.runtimeType}',
+                        child: Text(
+                            'Status:  ${zermeloService?.currentUser?.runtimeType}',
                             textScaleFactor: 1.6,
                             style: TextStyle(
                               fontWeight: FontWeight.w400,
@@ -137,29 +131,28 @@ class Profielscherm extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.all(Radius.circular(5))),
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              primary: Colors.white,
-                              elevation: 0,
-                            ),
-                            onPressed: () {
-                              Navigator.push(
-                               context,
-                               MaterialPageRoute(
-                                   builder: (_) => const HomeScreen()),
-                              );
-                            },
-                            child: Text(
-                              'Rooster',
-                              textScaleFactor: 1.8,
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w600,
-                                fontFamily: 'type',
-                              ),
-                            ),
-                          )
-                  ),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.white,
+                          elevation: 0,
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => const HomeScreen()),
+                          );
+                        },
+                        child: Text(
+                          'Rooster',
+                          textScaleFactor: 1.8,
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w600,
+                            fontFamily: 'type',
+                          ),
+                        ),
+                      )),
                   Container(
                     margin: EdgeInsets.only(top: 15),
                     width: 340,
@@ -175,8 +168,7 @@ class Profielscherm extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                              builder: (_) => const Meldingen()),
+                          MaterialPageRoute(builder: (_) => const Meldingen()),
                         );
                       },
                       child: Text(
@@ -202,12 +194,10 @@ class Profielscherm extends StatelessWidget {
                         elevation: 0,
                       ),
                       onPressed: () async {
-                        await zermeloService!
-                            .logout();
+                        await zermeloService!.logout();
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                              builder: (_) => LoginScreen()),
+                          MaterialPageRoute(builder: (_) => LoginScreen()),
                         );
                       },
                       child: Row(
@@ -217,16 +207,14 @@ class Profielscherm extends StatelessWidget {
                             'Uitloggen  ',
                             textScaleFactor: 1.8,
                             style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontFamily: 'type'
-                            ),
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                                fontFamily: 'type'),
                           ),
                           Icon(
                             Icons.logout,
                             color: Colors.white,
                             size: 25,
-
                           )
                         ],
                       ),
@@ -236,9 +224,6 @@ class Profielscherm extends StatelessWidget {
               ),
             ),
           ),
-
-        )
-      );
-
+        ));
   }
 }
