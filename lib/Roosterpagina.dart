@@ -60,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
             toolbarHeight: 80,
             centerTitle: true,
             title: Text(
-              'Lesrooster',
+              'Rooster',
               style: TextStyle(fontSize: 30, color: Colors.black, fontWeight: FontWeight.bold, fontFamily: 'type'),
             ),
             leading: TextButton(
@@ -156,7 +156,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                   ),
                                 ],
-                              ),
+                              )
                               // child: Text(
                               //   '${appointment.startTimeSlot}           ${_getClass(appointment)}',
                               //   style: TextStyle(
@@ -182,10 +182,10 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Color _getTypeColor(appointment) {
-    if (appointment.cancelled) return Color.fromRGBO(255, 38, 38, 1.0);
+    if (appointment.cancelled) return Color.fromRGBO(255, 50, 50, 1.0);
     if (appointment.moved) return Colors.orange;
     if (appointment.modified) return Colors.blue;
-    //if (this.appointment.valid) return Colors.green;
+    // if (this.appointment.valid) return Colors.green;
     return Colors.black12;
   }
 
@@ -268,36 +268,22 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<String> _getDayReference(DateTime date) {
     final now = DateTime.now().add(Duration(hours: 1));
-    print("Datetime now:");
     print(now);
-    print(DateTime.now());
-    print("dag is " + now.day.toString());
+
     final diff = date.difference(now).inDays - 1;
     print(diff);
-    if (diff == -2) {
-      return ["Eergisteren", _getDayName(date, true)];
-    } else if (diff == -1) {
+    if (diff == -1) {
       return ["Gisteren", _getDayName(date, true)];
     } else if (diff == 0) {
       return ["Vandaag", _getDayName(date, true)];
     } else if (diff == 1) {
       return ["Morgen", _getDayName(date, true)];
-    } else if (diff == 2) {
-      return ["Overmorgen", _getDayName(date, true)];
-    } else if (diff > 2) {
+    } else {
       return [
-        "${date.day.toString()} ${_getMonthName(date)} ${date.year != DateTime.now().year ? date.year.toString() : ""}",
+      "${date.day.toString()} ${_getMonthName(date)} ${date.year != DateTime.now().year ? date.year.toString() : ""}",
     _getDayName(date, false)
       ];
-    } else if (diff < -2) {
-      return [
-        "${date.day.toString()} ${_getMonthName(date)} ${date.year != DateTime.now().year ? date.year.toString() : ""}",
-        _getDayName(date, false)
-      ];
-    } else if (diff == 0) {
-      return ["Vandaag", _getDayName(date, true)];
     }
-    return ["welp", "error ofzoo"];
   }
 
   String _getMonthName(DateTime date) {

@@ -1,47 +1,52 @@
 import 'login.dart';
 import 'main.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'Colors.dart';
 
-void main() {
-  runApp(MyApp());
-}
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class hulpscreen extends StatelessWidget {
+  const hulpscreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => MyAppState(),
-      child: MaterialApp(
-        title: 'Namer App',
-        theme: ThemeData(
-          useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
+    return MaterialApp(
+
+      debugShowCheckedModeBanner: false,
+
+      home: Scaffold(
+        appBar: PreferredSize(
+            preferredSize: Size.fromHeight(80),
+            child: AppBar(
+              toolbarHeight: 80,
+              centerTitle: true,
+              title: Text(
+                'Hulp',
+                style: TextStyle(fontSize: 30, color: Colors.black, fontWeight: FontWeight.bold, fontFamily: 'type'),
+              ),
+              leading: TextButton(
+                child: Icon(
+                    Icons.arrow_back_ios_new_rounded,
+                    color: Colors.black,
+                    size: 30
+                ),
+                onPressed: () {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) {
+                            return LoginScreen();
+                          }));
+                },
+              ),
+
+              backgroundColor: Colors.white,
+              elevation: 0,
+            )
         ),
-        home: MyHomePage(),
+        backgroundColor: blauw,
+
+
       ),
     );
   }
 }
 
-class MyAppState extends ChangeNotifier {
-  var current = WordPair.random();
-}
-
-class MyHomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    var appState = context.watch<MyAppState>();
-
-    return Scaffold(
-      body: Column(
-        children: [
-          Text('A random idea:'),
-          Text(appState.current.asLowerCase),
-        ],
-      ),
-    );
-  }
-}

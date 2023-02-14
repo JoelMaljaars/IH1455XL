@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:pwsdikketrekker/Profielscherm.dart';
+import 'package:pwsdikketrekker/hulp.dart';
 import 'Roosterpagina.dart';
 import 'main.dart';
 import 'Colors.dart';
@@ -12,7 +13,7 @@ import 'package:zermelo/Zermelo.dart';
 //import 'Services/Zermelo/';
 //import 'Services/Zermelo/zermelo.dart';
 
-//.
+
 class LoginScreen extends StatelessWidget {
   TextEditingController text1 = TextEditingController();
   TextEditingController text2 = TextEditingController();
@@ -63,7 +64,7 @@ class LoginScreen extends StatelessWidget {
                   child: Container(
                     padding: const EdgeInsets.symmetric(
                         vertical: 16, horizontal: 16),
-                    height: 260,
+                    height: 270,
                     width: 350,
                     child: Column(
                       children: [
@@ -94,9 +95,6 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ),
 
-
-
-                        //),
                         Container(
                           margin: EdgeInsets.only(top: 10),
                           width: 350,
@@ -132,6 +130,11 @@ class LoginScreen extends StatelessWidget {
                           width: 150,
                           child: TextButton(
                           onPressed: (){
+                            Navigator.pushReplacement(context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) {
+                                      return hulpscreen();
+                                    }));
                             //TODO FORGOT PASSWORD SCREEN GOES HERE
                           },
                           child: Text(
