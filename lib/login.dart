@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:pwsdikketrekker/Profielscherm.dart';
 import 'Roosterpagina.dart';
@@ -40,7 +42,7 @@ class LoginScreen extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(top: 0),
                 child: const Text(
-                  'DeTa',
+                  'Dèta',
                   textAlign: TextAlign.center,
                   textScaleFactor: 4.0,
                   style: TextStyle(
@@ -91,21 +93,12 @@ class LoginScreen extends StatelessWidget {
                             obscureText: (true),
                           ),
                         ),
-                        // Container(
-                        //   margin: EdgeInsets.only(top: 0),
-                        //   height: 10,
-                        //   width: 10,
-                        //   child: TextButton(
-                        //     style: TextButton.styleFrom(
-                        //         textStyle: const TextStyle(fontSize: 20)),
-                        //
-                        //     onPressed: () {},
-                        //     child: const Text('Hulp nodig?'),
-                        //     // TODO: Hier nog hulpknop maken ~jo
-                        //   ),
-                        // ),
+
+
+
+                        //),
                         Container(
-                          margin: EdgeInsets.only(top: 30),
+                          margin: EdgeInsets.only(top: 10),
                           width: 350,
                           height: 50,
                           child: ElevatedButton(
@@ -134,11 +127,44 @@ class LoginScreen extends StatelessWidget {
                             ),
                           ),
                         ),
+                        SizedBox(
+                          height: 40,
+                          width: 150,
+                          child: TextButton(
+                          onPressed: (){
+                            //TODO FORGOT PASSWORD SCREEN GOES HERE
+                          },
+                          child: Text(
+                            'Hulp nodig?',
+                            style: TextStyle(color: Colors.blue, fontSize: 15),
+                          ),
+                        ),
+                        )
                       ],
                     ),
+
                   ),
                 ),
               ),
+
+              //Column(
+              //  mainAxisAlignment:MainAxisAlignment.,
+              //  children: [
+              //    Text("Developed by DT developers")
+              //  ],
+              //),
+              // SizedBox(
+              //   height: 100,
+              //   width: 1,
+              //
+              // ),
+              // Column(
+              //   children: [
+              //     SomeWidgetOnTheTop(),
+              //     Spacer(),
+              //     SomeCenterredBottomWidget(),
+              //   ],
+              // );
               const Align(
                 alignment: Alignment.bottomCenter,
                 child: Text(
