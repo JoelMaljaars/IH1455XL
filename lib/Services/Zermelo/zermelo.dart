@@ -91,7 +91,7 @@ class ZermeloService {
           Duration(days: 14),
         ),
         DateTime.now().subtract(
-          Duration(days: 7),
+          Duration(days: -14),
         ),
       );
 
@@ -103,7 +103,7 @@ class ZermeloService {
         if (days.isNotEmpty) {
           DateTime date = DateTime.fromMillisecondsSinceEpoch(f.start * 1000);
           final appDate = "${date.day}/${date.month}";
-
+          print(appDate);
           dayIndex = days.indexWhere(
               (d) => (("${d.date.day}/${d.date.month}") == (appDate)));
         }

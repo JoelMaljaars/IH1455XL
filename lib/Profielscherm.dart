@@ -83,7 +83,7 @@ class Profielscherm extends StatelessWidget {
                           style: TextStyle(
                               fontWeight: FontWeight.w400,
                               fontFamily: 'type'))),
-                  Container(
+                  Container(          //Schoolnaam
                     margin: EdgeInsets.only(top: 20),
                     width: 340,
                     height: 50,
@@ -103,7 +103,7 @@ class Profielscherm extends StatelessWidget {
                         color: Colors.white,
                         borderRadius: BorderRadius.all(Radius.circular(5))),
                   ),
-                  Container(
+                  Container(          //Type gebruiker
                     margin: EdgeInsets.only(top: 15),
                     width: 340,
                     height: 50,
@@ -124,8 +124,10 @@ class Profielscherm extends StatelessWidget {
                         color: Colors.white,
                         borderRadius: BorderRadius.all(Radius.circular(5))),
                   ),
+
+
                   Container(
-                      margin: EdgeInsets.only(top: 50),
+                      margin: EdgeInsets.only(top: 40),
                       width: 340,
                       height: 50,
                       decoration: BoxDecoration(
@@ -183,11 +185,12 @@ class Profielscherm extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 50),
+                    margin: EdgeInsets.only(top: 30),
                     width: 340,
                     height: 50,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(5))),
+
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         primary: Colors.black87,

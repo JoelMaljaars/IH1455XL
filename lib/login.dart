@@ -135,7 +135,7 @@ class LoginScreen extends StatelessWidget {
                                     builder: (BuildContext context) {
                                       return hulpscreen();
                                     }));
-                            //TODO FORGOT PASSWORD SCREEN GOES HERE
+
                           },
                           child: Text(
                             'Hulp nodig?',
