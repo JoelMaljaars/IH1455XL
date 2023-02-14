@@ -38,6 +38,7 @@ dependencies:
   zermelo: ^0.0.5
   path_provider: ^2.0.2
   provider: ^6.0.0
+  image_picker: ^0.8.6+1
 
 dev_dependencies:
   flutter_test:

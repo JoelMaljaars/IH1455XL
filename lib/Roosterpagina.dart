@@ -270,7 +270,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final now = DateTime.now().add(Duration(hours: 1));
     print(now);
 
-    final diff = date.difference(now).inDays - 1;
+    final diff = date.difference(now).inDays;
     print(diff);
     if (diff == -1) {
       return ["Gisteren", _getDayName(date, true)];

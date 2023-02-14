@@ -88,10 +88,10 @@ class ZermeloService {
     } else {
       List<dynamic> appointments = await _zermelo!.appointments.get(
         DateTime.now().subtract(
-          Duration(days: 14),
+          Duration(days: 2),
         ),
-        DateTime.now().subtract(
-          Duration(days: -14),
+        DateTime.now().add(
+          Duration(days: 30),
         ),
       );
 
@@ -103,7 +103,7 @@ class ZermeloService {
         if (days.isNotEmpty) {
           DateTime date = DateTime.fromMillisecondsSinceEpoch(f.start * 1000);
           final appDate = "${date.day}/${date.month}";
-          print(appDate);
+
           dayIndex = days.indexWhere(
               (d) => (("${d.date.day}/${d.date.month}") == (appDate)));
         }

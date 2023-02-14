@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:pwsdikketrekker/Roosterpagina.dart';
 import 'package:pwsdikketrekker/login.dart';
 import 'package:pwsdikketrekker/main.dart';
@@ -7,18 +8,28 @@ import 'package:zermelo/Zermelo.dart';
 import 'Colors.dart';
 import 'Meldingen.dart';
 import '../../main.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
-class Profielscherm extends StatelessWidget {
+class Profielscherm extends StatefulWidget {
   const Profielscherm({Key? key}) : super(key: key);
 
-  // @override
-  // Future waitSeconds(int seconds) async {
-  //   return Future.delayed(Duration(seconds: seconds));
-  //   await waitSeconds(3);
-  // }
-  // void initState() async{
-  //   await waitSeconds(3);
-  // }
+  @override
+  State<Profielscherm> createState() => _ProfielschermState();
+}
+
+class _ProfielschermState extends State<Profielscherm> {
+    //const Profielscherm({Key? key}) : super(key: key);
+
+  File? image;
+
+  Future pickImage() async{
+    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (image == null) return;
+
+    final imageTemporary = File(image.path);
+    setState(() => this.image = imageTemporary);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,13 +75,45 @@ class Profielscherm extends StatelessWidget {
                     transform: Matrix4.translationValues(0.0, -80.0, 0.0),
                     width: 160,
                     height: 160,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage(
-                              "assets/images/profile_image_avatar2.jpg"),
-                          fit: BoxFit.fill),
-                      color: Colors.grey,
-                      shape: BoxShape.circle,
+                    child: image != null
+                        ? Container(
+                      width: 160,
+                      height: 160,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          image: FileImage(image!),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    )
+                        : Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          image: AssetImage("assets/images/profile_image_avatar2.jpg"),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    transform: Matrix4.translationValues(55.0, -120.0, 0.0),
+                    width: 40,
+                    height: 40,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.black87,
+                        elevation: 0,
+                        shape: CircleBorder(),
+                      ),
+                      onPressed: () => pickImage(),
+                      child: Container(
+                        transform: Matrix4.translationValues(-7.0, 0.0, 0.0),
+                        width: 30,
+                        height: 30,
+                        child: Icon(Icons.camera_alt, color: Colors.white, size: 25,)
+                      )
                     ),
                   ),
                   Container(
@@ -203,6 +246,7 @@ class Profielscherm extends StatelessWidget {
                           MaterialPageRoute(builder: (_) => LoginScreen()),
                         );
                       },
+
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

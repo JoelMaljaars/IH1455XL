@@ -113,7 +113,7 @@ class LoginScreen extends StatelessWidget {
                               Navigator.pushReplacement(context,
                                   MaterialPageRoute(
                                       builder: (BuildContext context) {
-                                return const Profielscherm();
+                                return Profielscherm();
                               }));
                             },
                             child: Text(
