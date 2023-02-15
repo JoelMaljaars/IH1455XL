@@ -1,14 +1,8 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:pwsdikketrekker/main.dart';
 import 'package:pwsdikketrekker/services/zermelo/zermelo.dart';
 import 'Colors.dart';
-import 'Profielscherm.dart';
-import 'Meldingen.dart';
-import 'login.dart';
 import 'package:zermelo/Zermelo.dart';
-import 'package:zermelo/User/User.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -43,12 +37,19 @@ class _HomeScreenState extends State<HomeScreen> {
     days = await zermeloService!.getDays(context);
     return days;
 
-    // setState(() {
-    //   days = _days;
-    // });
+  }
+  Color _getTypeColor(Appointment appointment) {
+    if (appointment.cancelled) {
+      return Colors.red; // set red color for cancelled appointment
+    } else if (appointment.moved) {
+      return Colors.orange; // set orange color for moved appointment
+    } else if (appointment.modified) {
+      return Colors.blue; // set blue color for modified appointment
+    } else {
+      return Colors.black12; // default color for non-modified appointment
+    }
   }
 
-  //final String '${currentUser.firstName} ${currentUser.lastName}';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,16 +80,8 @@ class _HomeScreenState extends State<HomeScreen> {
           )
       ),
 
-      // floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-      // floatingActionButton: FloatingActionButton(
-      //   backgroundColor: Color.fromRGBO(252, 202, 46, 1),
-      //   onPressed: () => fillDays(context),
-      //   child: const Icon(Icons.add),
-      // ),
       body: ListView(
         children: [
-          // Text(title, style: TextStyle(fontSize: 30, color: Colors.white)),
-          // Text(subtitle, style: TextStyle(fontSize: 20)),
           Container(
             margin: EdgeInsets.only(top: 20),
             alignment: Alignment.center,
@@ -110,8 +103,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     controller: _pageController,
                     scrollDirection: Axis.horizontal,
                     onPageChanged: (index) {
-                      //print(
-                      //     'pagina is nu veranderd, hier kan je de titel ofzo aanpassen');
                       Day day = days[index];
                       setState(() {
                         List<String> texts = _getDayReference(day.date);
@@ -157,13 +148,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                 ],
                               )
-                              // child: Text(
-                              //   '${appointment.startTimeSlot}           ${_getClass(appointment)}',
-                              //   style: TextStyle(
-                              //     color: Colors.black,
-                              //     fontSize: 25,
-                              //   ),
-                              // ),
+                              //TODO oude afspraken verwijderen als er veranderingen in het rooster hebben plaatsgevonden
                             );
                           },
                         ),
@@ -179,14 +164,6 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
     );
-  }
-
-  Color _getTypeColor(appointment) {
-    if (appointment.cancelled) return Color.fromRGBO(255, 50, 50, 1.0);
-    if (appointment.moved) return Colors.orange;
-    if (appointment.modified) return Colors.blue;
-    // if (this.appointment.valid) return Colors.green;
-    return Colors.black12;
   }
 
   String _getClass(appointment) {
@@ -260,30 +237,24 @@ class _HomeScreenState extends State<HomeScreen> {
       case "wisa":
         return "Wiskunde A";
         break;
+      case "Act":
+        return "Act";
+        break;
       default:
-        return "${appointment.subjects[0]}???";
+        return "${appointment.subjects[0]}";
         break;
     }
   }
 
   List<String> _getDayReference(DateTime date) {
-    final now = DateTime.now().add(Duration(hours: 1));
-    print(now);
 
-    final diff = date.difference(now).inDays;
-    print(diff);
-    if (diff == -1) {
-      return ["Gisteren", _getDayName(date, true)];
-    } else if (diff == 0) {
-      return ["Vandaag", _getDayName(date, true)];
-    } else if (diff == 1) {
-      return ["Morgen", _getDayName(date, true)];
-    } else {
-      return [
-      "${date.day.toString()} ${_getMonthName(date)} ${date.year != DateTime.now().year ? date.year.toString() : ""}",
-    _getDayName(date, false)
-      ];
-    }
+    return [
+      "${date.day.toString()} ${_getMonthName(date)} ${date.year != DateTime
+          .now()
+          .year ? date.year.toString() : ""}",
+      _getDayName(date, false)
+    ];
+
   }
 
   String _getMonthName(DateTime date) {

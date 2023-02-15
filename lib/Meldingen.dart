@@ -36,8 +36,34 @@ class Meldingen extends StatelessWidget {
             )
         ),
         backgroundColor: blauw,
-
-
+        body: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.only(top: 250),
+              alignment: Alignment.center,
+              child: Icon(
+                Icons.message,
+                color: grijs,
+                size: 80,
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 10),
+              alignment: Alignment.center,
+              child: Text(
+                'U heeft momenteel geen meldingen',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: 'type',
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: grijs,
+                ),
+              ),
+            ),
+          ],
+          //TODO eventueel meldingen toevoegen
+        ),
       ),
     );
   }

@@ -1,17 +1,8 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:pwsdikketrekker/Profielscherm.dart';
 import 'package:pwsdikketrekker/hulp.dart';
-import 'Roosterpagina.dart';
 import 'main.dart';
 import 'Colors.dart';
-import 'Services/Zermelo/zermelo.dart';
-import 'package:zermelo/Zermelo.dart';
-//import 'Services/Zermelo/Util.dart';
-//import 'Services/Zermelo/User/User.dart';
-//import 'Services/Zermelo/';
-//import 'Services/Zermelo/zermelo.dart';
 
 
 class LoginScreen extends StatelessWidget {
@@ -145,36 +136,21 @@ class LoginScreen extends StatelessWidget {
                         )
                       ],
                     ),
-
                   ),
                 ),
               ),
 
-              //Column(
-              //  mainAxisAlignment:MainAxisAlignment.,
-              //  children: [
-              //    Text("Developed by DT developers")
-              //  ],
-              //),
-              // SizedBox(
-              //   height: 100,
-              //   width: 1,
-              //
-              // ),
-              // Column(
-              //   children: [
-              //     SomeWidgetOnTheTop(),
-              //     Spacer(),
-              //     SomeCenterredBottomWidget(),
-              //   ],
-              // );
               const Align(
                 alignment: Alignment.bottomCenter,
-                child: Text(
-                  'Developed by DT developers',
-                  style: TextStyle(color: Colors.white, fontFamily: 'type'),
-                ),
+                child: Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Text(
+                    'Developed by DT developers',
+                    style: TextStyle(color: Colors.white, fontFamily: 'type'),
+                  ),
+                )
               ),
+
             ],
           ),
         ),

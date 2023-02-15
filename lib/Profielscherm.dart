@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import 'package:pwsdikketrekker/Roosterpagina.dart';
 import 'package:pwsdikketrekker/login.dart';
 import 'package:pwsdikketrekker/main.dart';
-import 'package:pwsdikketrekker/services/zermelo/zermelo.dart';
-import 'package:zermelo/Zermelo.dart';
 import 'Colors.dart';
 import 'Meldingen.dart';
 import '../../main.dart';
@@ -19,7 +16,6 @@ class Profielscherm extends StatefulWidget {
 }
 
 class _ProfielschermState extends State<Profielscherm> {
-    //const Profielscherm({Key? key}) : super(key: key);
 
   File? image;
 
@@ -120,8 +116,6 @@ class _ProfielschermState extends State<Profielscherm> {
                       transform: Matrix4.translationValues(0.0, -40.0, 0.0),
                       child: Text(
                           "${zermeloService?.currentUser?.firstName ?? ''}  ${zermeloService?.currentUser?.prefix ?? ''}  ${zermeloService?.currentUser?.lastName ?? ''}",
-
-                          //zermeloService!.currentUser.firstName,
                           textScaleFactor: 2.7,
                           style: TextStyle(
                               fontWeight: FontWeight.w400,
