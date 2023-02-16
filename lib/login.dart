@@ -1,8 +1,17 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:pwsdikketrekker/Profielscherm.dart';
 import 'package:pwsdikketrekker/hulp.dart';
+import 'Roosterpagina.dart';
 import 'main.dart';
 import 'Colors.dart';
+import 'Services/Zermelo/zermelo.dart';
+import 'package:zermelo/Zermelo.dart';
+//import 'Services/Zermelo/Util.dart';
+//import 'Services/Zermelo/User/User.dart';
+//import 'Services/Zermelo/';
+//import 'Services/Zermelo/zermelo.dart';
 
 
 class LoginScreen extends StatelessWidget {
@@ -118,39 +127,91 @@ class LoginScreen extends StatelessWidget {
                         ),
                         SizedBox(
                           height: 40,
-                          width: 150,
+                          width: 50,
                           child: TextButton(
-                          onPressed: (){
-                            Navigator.pushReplacement(context,
-                                MaterialPageRoute(
-                                    builder: (BuildContext context) {
-                                      return hulpscreen();
-                                    }));
+                            onPressed: (){
 
-                          },
-                          child: Text(
-                            'Hulp nodig?',
-                            style: TextStyle(color: Colors.blue, fontSize: 15),
+
+                            },
+                            child: Text(
+                              'Hulp nodig?',
+                              style: TextStyle(color: Colors.blue, fontSize: 15),
+
+
                           ),
                         ),
+                        ),
+                        SizedBox(
+                          height: 40,
+                          width: 50,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                "Hulp nodig?",
+                              ),
+                              Text(
+                                "Qr-code Scanner",
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  TextButton(
+                                      onPressed: () {
+                                        Navigator.pushReplacement(context,
+                                            MaterialPageRoute(
+                                                builder: (BuildContext context) {
+                                                  return hulpscreen();
+                                                }));
+                                      },
+                                      child: Text('Play')),
+                                  TextButton(
+                                      onPressed: () {
+                                        Navigator.pushReplacement(context,
+                                            MaterialPageRoute(
+                                                builder: (BuildContext context) {
+                                                  return //Qr-scannerscreen();
+                                                  //TODO: Qr-codescreen toevoegen
+                                                }));
+                                      },
+                                      child: Text('Pause')),
+                                ],
+                              )
+                            ],
+                          )
                         )
                       ],
                     ),
+
                   ),
                 ),
               ),
 
+              //Column(
+              //  mainAxisAlignment:MainAxisAlignment.,
+              //  children: [
+              //    Text("Developed by DT developers")
+              //  ],
+              //),
+              // SizedBox(
+              //   height: 100,
+              //   width: 1,
+              //
+              // ),
+              // Column(
+              //   children: [
+              //     SomeWidgetOnTheTop(),
+              //     Spacer(),
+              //     SomeCenterredBottomWidget(),
+              //   ],
+              // );
               const Align(
                 alignment: Alignment.bottomCenter,
-                child: Padding(
-                  padding: EdgeInsets.all(10),
-                  child: Text(
-                    'Developed by DT developers',
-                    style: TextStyle(color: Colors.white, fontFamily: 'type'),
-                  ),
-                )
+                child: Text(
+                  'Developed by DT developers',
+                  style: TextStyle(color: Colors.white, fontFamily: 'type'),
+                ),
               ),
-
             ],
           ),
         ),
