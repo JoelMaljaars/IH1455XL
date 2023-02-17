@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:pwsdikketrekker/Profielscherm.dart';
 import 'package:pwsdikketrekker/hulp.dart';
+import 'package:pwsdikketrekker/qrscannerscreen.dart';
 import 'Roosterpagina.dart';
 import 'main.dart';
 import 'Colors.dart';
@@ -125,38 +126,47 @@ class LoginScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(
-                          height: 40,
-                          width: 50,
-                          child: TextButton(
-                            onPressed: (){
+                        // SizedBox(
+                        //   height: 40,
+                        //   width: 50,
+                        //   child: TextButton(
+                        //     onPressed: (){
+//
+//
+                        //     },
+                        //     child: Text(
+                        //       'Hulp nodig?',
+                        //       style: TextStyle(color: Colors.blue, fontSize: 15),
+//
 
+                        //  ),
+                        //),
+                        //),
+                        Container(
+                          alignment: Alignment.topCenter,
 
-                            },
-                            child: Text(
-                              'Hulp nodig?',
-                              style: TextStyle(color: Colors.blue, fontSize: 15),
+                        child:
+                            //mainAxisAlignment: MainAxisAlignment.center,
+                            //crossAxisAlignment: CrossAxisAlignment.center,
 
+                              // Text(
+                              //   "Hulp nodig?",
+                              // ),
+                              // Text(
+                              //   "Qr-code Scanner",
+                              // ),
 
-                          ),
-                        ),
-                        ),
-                        SizedBox(
-                          height: 40,
-                          width: 50,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Text(
-                                "Hulp nodig?",
-                              ),
-                              Text(
-                                "Qr-code Scanner",
-                              ),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
+                                //mainAxisAlignment: MainAxisAlignment.center,
+
+                                // crossAxisAlignment: CrossAxisAlignment.stretch,
                                 children: <Widget>[
+                                  SizedBox(
+
+                                    child:
+
                                   TextButton(
+
                                       onPressed: () {
                                         Navigator.pushReplacement(context,
                                             MaterialPageRoute(
@@ -164,22 +174,27 @@ class LoginScreen extends StatelessWidget {
                                                   return hulpscreen();
                                                 }));
                                       },
-                                      child: Text('Play')),
+                                      child: Text('Hulp nodig?')),
+                                  ),
+                                  SizedBox(
+
+                                    child:
                                   TextButton(
                                       onPressed: () {
                                         Navigator.pushReplacement(context,
                                             MaterialPageRoute(
                                                 builder: (BuildContext context) {
-                                                  return //Qr-scannerscreen();
+                                                  return qrscannerscreen();
                                                   //TODO: Qr-codescreen toevoegen
                                                 }));
                                       },
-                                      child: Text('Pause')),
+                                      child: Text('Qr-code scanner')),
+                                  )
                                 ],
                               )
-                            ],
-                          )
+
                         )
+
                       ],
                     ),
 
